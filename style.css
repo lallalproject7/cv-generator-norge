@@ -1,0 +1,506 @@
+/* MittCV */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fb;
+    color: #1a1a2e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #0D2B4E, #1a4a8a);
+    color: white;
+    padding: 32px 0 0 0;
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.header-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 0;
+}
+
+.header-tab {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.header-tab.active {
+    background: #f8f9fb;
+    color: #0D2B4E;
+    font-weight: 600;
+}
+
+.header-tab:hover:not(.active) {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main */
+main {
+    padding: 40px 24px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Layout */
+.builder-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Form Panel */
+.form-panel h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0D2B4E;
+    margin-bottom: 24px;
+}
+
+.form-group-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form-group-section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0D2B4E;
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #1a1a2e;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e6f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #1a1a2e;
+    background-color: white;
+    transition: all 0.2s ease;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a4a8a;
+    box-shadow: 0 0 0 3px rgba(26, 74, 138, 0.1);
+}
+
+.hint {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+/* Erfaring item */
+.erfaring-item,
+.utdanning-item {
+    background: #f8f9fb;
+    border: 1.5px solid #e0e6f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.add-btn {
+    background: none;
+    border: 1.5px dashed #1a4a8a;
+    color: #1a4a8a;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+    background: #eef3fb;
+}
+
+/* Download button */
+.download-btn {
+    background-color: #1a4a8a;
+    color: white;
+    border: none;
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #0D2B4E;
+}
+
+/* Preview Panel */
+.preview-panel h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0D2B4E;
+    margin-bottom: 24px;
+}
+
+.cv-preview {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: 600px;
+}
+
+.empty-preview {
+    color: #aaa;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 15px;
+}
+
+/* CV Preview Styles */
+.cv-header {
+    border-bottom: 2px solid #0D2B4E;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.cv-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0D2B4E;
+    margin-bottom: 8px;
+}
+
+.cv-contact {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.cv-section {
+    margin-bottom: 20px;
+}
+
+.cv-section h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0D2B4E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #e0e6f0;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+}
+
+.cv-section p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.7;
+}
+
+.cv-item {
+    margin-bottom: 14px;
+}
+
+.cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cv-item-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a2e;
+}
+
+.cv-item-company {
+    font-size: 13px;
+    color: #1a4a8a;
+    font-weight: 500;
+}
+
+.cv-item-date {
+    font-size: 12px;
+    color: #888;
+    white-space: nowrap;
+}
+
+.cv-item-desc {
+    font-size: 13px;
+    color: #555;
+    margin-top: 4px;
+    line-height: 1.6;
+}
+
+.cv-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.cv-skill {
+    background: #eef3fb;
+    color: #1a4a8a;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.cv-referanser {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e6f0;
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background-color: #0D2B4E;
+    color: #8899aa;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 14px;
+    line-height: 2;
+    margin-top: 48px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .builder-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-preview {
+        position: static;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}
+
+/* Template selector */
+.template-selector {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.template-label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1a1a2e;
+    white-space: nowrap;
+}
+
+.template-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.template-btn {
+    background: #f8f9fb;
+    border: 1.5px solid #e0e6f0;
+    color: #666;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.template-btn.active {
+    background: #0D2B4E;
+    border-color: #0D2B4E;
+    color: white;
+    font-weight: 500;
+}
+
+.template-btn:hover:not(.active) {
+    border-color: #1a4a8a;
+    color: #1a4a8a;
+}
+
+/* Template: Klassisk (default - already styled) */
+.template-klassisk .cv-header {
+    border-bottom: 2px solid #0D2B4E;
+}
+
+.template-klassisk .cv-section h2 {
+    color: #0D2B4E;
+    border-bottom: 1px solid #e0e6f0;
+}
+
+/* Template: Moderne */
+.template-moderne .cv-header {
+    background: #0D2B4E;
+    color: white;
+    padding: 24px;
+    margin: -40px -40px 20px -40px;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+}
+
+.template-moderne .cv-header h1 {
+    color: white;
+    font-size: 28px;
+}
+
+.template-moderne .cv-contact {
+    color: rgba(255,255,255,0.8);
+}
+
+.template-moderne .cv-section h2 {
+    color: #1a4a8a;
+    border-bottom: 2px solid #1a4a8a;
+}
+
+.template-moderne .cv-skill {
+    background: #0D2B4E;
+    color: white;
+}
+
+/* Template: Minimal */
+.template-minimal .cv-header {
+    border-bottom: 1px solid #ccc;
+}
+
+.template-minimal .cv-header h1 {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.template-minimal .cv-section h2 {
+    color: #333;
+    font-weight: 400;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #ccc;
+}
+
+.template-minimal .cv-item-title {
+    font-weight: 500;
+    color: #333;
+}
+
+.template-minimal .cv-item-company {
+    color: #666;
+}
+
+.template-minimal .cv-skill {
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 0;
+}

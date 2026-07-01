@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MittCV — Lag profesjonell CV og søknadsbrev gratis</title>
+    <meta name="description" content="Lag en profesjonell norsk CV og søknadsbrev gratis på under 5 minutter. Last ned som PDF. Tilpasset norsk arbeidsmarked 2026.">
+    <meta name="keywords" content="lag CV, CV mal norsk, søknadsbrev mal, CV bygger Norge, gratis CV, norsk CV 2026">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>MittCV</h1>
+                <p>Lag profesjonell CV og søknadsbrev på 5 minutter — gratis</p>
+            </div>
+            <div class="header-tabs">
+                <button class="header-tab active" onclick="showSection('cv')">📄 CV</button>
+                <button class="header-tab" onclick="showSection('soknadsbrev')">✉️ Søknadsbrev</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- CV Section -->
+        <section id="cv-section" class="section active">
+            <div class="builder-layout">
+
+                <!-- Form -->
+                <div class="form-panel">
+                    <h2>Fyll inn din informasjon</h2>
+
+                    <div class="template-selector">
+    <p class="template-label">Velg mal:</p>
+    <div class="template-btns">
+        <button class="template-btn active" onclick="setTemplate('klassisk')">Klassisk</button>
+        <button class="template-btn" onclick="setTemplate('moderne')">Moderne</button>
+        <button class="template-btn" onclick="setTemplate('minimal')">Minimal</button>
+    </div>
+</div>
+
+                    <!-- Personlig informasjon -->
+                    <div class="form-group-section">
+                        <h3>👤 Personlig informasjon</h3>
+                        <div class="form-group">
+                            <label>Fullt navn *</label>
+                            <input type="text" id="navn" placeholder="Ola Nordmann" oninput="updateCV()">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Telefon</label>
+                                <input type="text" id="telefon" placeholder="+47 123 45 678" oninput="updateCV()">
+                            </div>
+                            <div class="form-group">
+                                <label>E-post *</label>
+                                <input type="email" id="epost" placeholder="ola@epost.no" oninput="updateCV()">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>LinkedIn (valgfritt)</label>
+                                <input type="text" id="linkedin" placeholder="linkedin.com/in/ola" oninput="updateCV()">
+                            </div>
+                            <div class="form-group">
+                                <label>By</label>
+                                <input type="text" id="by" placeholder="Oslo" oninput="updateCV()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profil -->
+                    <div class="form-group-section">
+                        <h3>📝 Profil</h3>
+                        <div class="form-group">
+                            <label>Kort profiltekst (3-5 setninger)</label>
+                            <textarea id="profil" rows="4" placeholder="Motivert og erfaren profesjonell med bakgrunn i..." oninput="updateCV()"></textarea>
+                            <span class="hint">Tips: Nevn rollen du søker, din viktigste erfaring og et konkret resultat</span>
+                        </div>
+                    </div>
+
+                    <!-- Arbeidserfaring -->
+                    <div class="form-group-section">
+                        <h3>💼 Arbeidserfaring</h3>
+                        <div id="erfaring-list"></div>
+                        <button class="add-btn" onclick="addErfaring()">+ Legg til stilling</button>
+                    </div>
+
+                    <!-- Utdanning -->
+                    <div class="form-group-section">
+                        <h3>🎓 Utdanning</h3>
+                        <div id="utdanning-list"></div>
+                        <button class="add-btn" onclick="addUtdanning()">+ Legg til utdanning</button>
+                    </div>
+
+                    <!-- Ferdigheter -->
+                    <div class="form-group-section">
+                        <h3>⚡ Ferdigheter</h3>
+                        <div class="form-group">
+                            <label>Ferdigheter (skill 1, skill 2, skill 3...)</label>
+                            <input type="text" id="ferdigheter" placeholder="Microsoft Office, Kommunikasjon, Teamarbeid" oninput="updateCV()">
+                        </div>
+                    </div>
+
+                    <!-- Språk -->
+<div class="form-group-section">
+    <h3>🌍 Språk</h3>
+    <div id="sprak-list"></div>
+    <button class="add-btn" onclick="addSprak()">+ Legg til språk</button>
+</div>
+
+<button class="download-btn" onclick="downloadPDF()">⬇️ Last ned som PDF</button>
+</div>
+
+                <!-- Preview -->
+                <div class="preview-panel">
+                    <h2>Forhåndsvisning</h2>
+                    <div class="cv-preview" id="cv-preview">
+                        <div class="cv-header">
+                            <h1 id="preview-navn">Ditt navn</h1>
+                            <div class="cv-contact" id="preview-contact"></div>
+                        </div>
+                        <div id="preview-profil"></div>
+                        <div id="preview-erfaring"></div>
+                        <div id="preview-utdanning"></div>
+                        <div id="preview-ferdigheter"></div>
+                        <div id="preview-sprak"></div>
+                        <div class="cv-referanser">
+                            <p>Referanser oppgis ved forespørsel</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Søknadsbrev Section -->
+        <section id="soknadsbrev-section" class="section">
+            <div class="builder-layout">
+                <div class="form-panel">
+                    <h2>Lag søknadsbrev</h2>
+
+                    <div class="form-group-section">
+                        <h3>📋 Informasjon</h3>
+                        <div class="form-group">
+                            <label>Ditt navn *</label>
+                            <input type="text" id="sb-navn" placeholder="Ola Nordmann" oninput="updateSoknadsbrev()">
+                        </div>
+                        <div class="form-group">
+                            <label>Stillingstittel du søker *</label>
+                            <input type="text" id="sb-stilling" placeholder="Kundeservicemedarbeider" oninput="updateSoknadsbrev()">
+                        </div>
+                        <div class="form-group">
+                            <label>Bedriftsnavn *</label>
+                            <input type="text" id="sb-bedrift" placeholder="Norsk Bedrift AS" oninput="updateSoknadsbrev()">
+                        </div>
+                        <div class="form-group">
+                            <label>Din erfaring (kort)</label>
+                            <textarea id="sb-erfaring" rows="3" placeholder="Jeg har 3 års erfaring innen kundeservice..." oninput="updateSoknadsbrev()"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Hvorfor søker du denne jobben?</label>
+                            <textarea id="sb-motivasjon" rows="3" placeholder="Jeg søker denne stillingen fordi..." oninput="updateSoknadsbrev()"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Hva kan du bidra med?</label>
+                            <textarea id="sb-bidrag" rows="3" placeholder="Jeg kan bidra med..." oninput="updateSoknadsbrev()"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="download-btn" onclick="downloadSoknadsbrevPDF()">⬇️ Last ned søknadsbrev</button>
+                </div>
+
+                <div class="preview-panel">
+                    <h2>Forhåndsvisning</h2>
+                    <div class="cv-preview" id="soknadsbrev-preview">
+                        <p class="empty-preview">Fyll inn informasjonen til venstre for å se forhåndsvisningen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 MittCV — Gratis CV-bygger for norsk arbeidsmarked</p>
+            <p>Ingen registrering nødvendig — din data forlater aldri nettleseren din</p>
+        </div>
+    </footer>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
