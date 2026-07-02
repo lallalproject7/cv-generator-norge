@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mittcv.netlify.app/sitemap.xml
